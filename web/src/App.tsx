@@ -4,10 +4,6 @@ import { Platform } from 'shared';
 import './App.css';
 
 function App() {
-    function sharedString() {
-        Platform
-    }
-
   return (
     <div className="App">
       <header className="App-header">

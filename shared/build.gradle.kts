@@ -1,5 +1,4 @@
 import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
-import org.jetbrains.kotlin.gradle.targets.js.webpack.KotlinWebpack
 
 plugins {
     kotlin("multiplatform")
@@ -20,6 +19,7 @@ kotlin {
             }
         }
         js(IR) {
+            moduleName = "shared"
             binaries.executable()
             browser {
                 commonWebpackConfig {
@@ -37,11 +37,7 @@ kotlin {
                 implementation(kotlin("test-annotations-common"))
             }
         }
-        val androidMain by getting {
-            dependencies {
-                implementation("com.google.android.material:material:1.2.1")
-            }
-        }
+        val androidMain by getting
         val iosMain by getting
         val jsMain by getting
     }
@@ -64,10 +60,6 @@ android {
     }
 }
 
-tasks.getByName<KotlinWebpack>("jsBrowserProductionWebpack") {
-    outputFileName = "shared.js"
-}
-
 val packForXcode by tasks.creating(Sync::class) {
     group = "build"
     val mode = System.getenv("CONFIGURATION") ?: "DEBUG"
@@ -82,4 +74,4 @@ val packForXcode by tasks.creating(Sync::class) {
 }
 
 tasks.getByName("build").dependsOn(packForXcode)
-tasks.getByName("build").dependsOn(tasks.getByName("jsBrowserProductionWebpack"))
+tasks.getByName("build").dependsOn(tasks.getByName("compileKotlinJs"))
