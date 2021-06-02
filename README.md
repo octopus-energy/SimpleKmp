@@ -9,8 +9,8 @@ We know this works smoothly for Kotlin/Jvm (Android) & Kotlin/Native (iOS). The 
 *JS Checklist*
 - [x] Shared code is converted to javascript readable code
 - [x] Code conversion process is depends on the gradle build task
-- [ ] Use generated code in a web project
-- [ ] Trigger the build task from a javascript IDE
+- [x] Use generated code in a web project
+- [x] Trigger the build task from a javascript IDE
 - [ ] Multithreading works
 - [ ] Consume a StateFlow
 - [ ] Interface / impl setup

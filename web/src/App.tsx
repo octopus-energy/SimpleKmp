@@ -1,9 +1,10 @@
-import React from 'react';
+import * as React from 'react';
 import logo from './logo.svg';
-import { Platform } from 'shared';
+import { me } from 'shared/packages/shared';
 import './App.css';
 
 function App() {
+  console.log(me.ianalexander.shared.Platform);
   return (
     <div className="App">
       <header className="App-header">
