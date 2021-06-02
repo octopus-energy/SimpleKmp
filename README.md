@@ -25,3 +25,6 @@ future)
 - [ ] Automated dependency injection
 - [ ] Generics works
 - [ ] What libraries work? Database/keyvalue/graphql
+
+*Limitations*
+- Any export to JS needs annotated with @JSExport (as of 1.5.0)
